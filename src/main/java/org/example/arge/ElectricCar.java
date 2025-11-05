@@ -1,36 +1,37 @@
+
 package org.example.arge;
 
-public class ElectricCar extends CarSkeleton{
-    private double avgKmPerLitre;
+public class ElectricCar extends CarSkeleton {
+    private double avgKmPerCharge;
     private int batterySize;
 
-    public ElectricCar(double avgKmPerLitre, int batterySize) {
-        this.avgKmPerLitre = avgKmPerLitre;
-        this.batterySize = batterySize;
-    }
-
-    public ElectricCar(String name, String description, double avgKmPerLitre, int batterySize) {
+    public ElectricCar(String name, String description, double avgKmPerCharge, int batterySize) {
         super(name, description);
-        this.avgKmPerLitre = avgKmPerLitre;
+        this.avgKmPerCharge = avgKmPerCharge;
         this.batterySize = batterySize;
     }
 
-    public double getAvgKmPerLitre() {
-        return avgKmPerLitre;
-    }
-
-    @Override
-    public String getDescription() {
-        return super.getDescription();
-    }
-
-    @Override
-    public String getName() {
-        return super.getName();
+    public double getAvgKmPerCharge() {
+        return avgKmPerCharge;
     }
 
     public int getBatterySize() {
         return batterySize;
     }
 
+    @Override
+    public void startEngine() {
+        System.out.println(getClass().getSimpleName() + ": electric engine is starting");
+    }
+
+    @Override
+    public void drive() {
+        System.out.println(getClass().getSimpleName() + ": driving with electric engine");
+        runEngine();
+    }
+
+    @Override
+    protected void runEngine() {
+        System.out.println(getClass().getSimpleName() + ": running electric engine");
+    }
 }

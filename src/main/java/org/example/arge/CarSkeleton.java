@@ -21,12 +21,15 @@ public class CarSkeleton {
         this.description = description;
     }
     public void startEngine() {
-
+        System.out.println(getClass().getSimpleName() + ": engine is starting");
     }
+
     public void drive() {
+        System.out.println(getClass().getSimpleName() + ": driving");
         runEngine();
     }
-    protected void runEngine() {
 
+    protected void runEngine() {
+        System.out.println(getClass().getSimpleName() + ": running engine");
     }
 }

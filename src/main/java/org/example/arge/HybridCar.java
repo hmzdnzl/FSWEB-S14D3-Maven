@@ -1,6 +1,7 @@
+
 package org.example.arge;
 
-public class HybridCar extends CarSkeleton{
+public class HybridCar extends CarSkeleton {
     private double avgKmPerLitre;
     private int batterySize;
     private int cylinders;
@@ -10,22 +11,6 @@ public class HybridCar extends CarSkeleton{
         this.avgKmPerLitre = avgKmPerLitre;
         this.batterySize = batterySize;
         this.cylinders = cylinders;
-    }
-
-    public HybridCar(double avgKmPerLitre, int batterySize, int cylinders) {
-        this.avgKmPerLitre = avgKmPerLitre;
-        this.batterySize = batterySize;
-        this.cylinders = cylinders;
-    }
-
-    @Override
-    public String getDescription() {
-        return super.getDescription();
-    }
-
-    @Override
-    public String getName() {
-        return super.getName();
     }
 
     public double getAvgKmPerLitre() {
@@ -40,4 +25,19 @@ public class HybridCar extends CarSkeleton{
         return cylinders;
     }
 
+    @Override
+    public void startEngine() {
+        System.out.println(getClass().getSimpleName() + ": hybrid engine is starting");
+    }
+
+    @Override
+    public void drive() {
+        System.out.println(getClass().getSimpleName() + ": driving with hybrid engine");
+        runEngine();
+    }
+
+    @Override
+    protected void runEngine() {
+        System.out.println(getClass().getSimpleName() + ": running hybrid engine");
+    }
 }

@@ -1,22 +1,30 @@
+
 package org.example.company;
 
-import java.util.Objects;
-
 public class Car {
-private boolean engine;
-private int cylinders;
-private String name;
-private int wheels;
+    private boolean engine;
+    private int cylinders;
+    private String name;
+    private int wheels;
 
+    public Car(int cylinders, String name) {
+        this.cylinders = cylinders;
+        this.name = name;
+        this.engine = true;
+        this.wheels = 4;
+    }
 
-    public Car(boolean engine, int wheels) {
-        this.engine = engine;
-        this.wheels = wheels;
+    public int getCylinders() {
+        return cylinders;
+    }
+
+    public String getName() {
+        return name;
     }
 
     @Override
     public String toString() {
-        return "Car{" +
+        return getClass().getSimpleName() + "{" +
                 "name='" + name + '\'' +
                 ", cylinders=" + cylinders +
                 '}';
@@ -24,33 +32,27 @@ private int wheels;
 
     @Override
     public boolean equals(Object o) {
+        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Car car = (Car) o;
-        return engine == car.engine && cylinders == car.cylinders && wheels == car.wheels && Objects.equals(name, car.name);
+        return cylinders == car.cylinders && name.equals(car.name);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(engine, cylinders, name, wheels);
-    }
     public String startEngine() {
-        System.out.println(getClass().getSimpleName());
-        return getClass().getSimpleName() + " -> the car's engine is starting";
+        System.out.println(getClass().getSimpleName() + ": the car's engine is starting");
+        return "the car's engine is starting";
     }
 
     public String accelerate() {
-        System.out.println(getClass().getSimpleName());
-        return getClass().getSimpleName() + " -> the car is accelerating";
+        System.out.println(getClass().getSimpleName() + ": the car is accelerating");
+        return "the car is accelerating";
     }
 
     public String brake() {
-        System.out.println(getClass().getSimpleName());
-        return getClass().getSimpleName() + " -> the car is braking";
+        System.out.println(getClass().getSimpleName() + ": the car is braking");
+        return "the car is braking";
     }
 }
-
-
-
 
 
 

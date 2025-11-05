@@ -1,13 +1,9 @@
+
 package org.example.arge;
 
-public class GasPoweredCar extends CarSkeleton{
-private double avgKmPerLitre;
-private int cylinders;
-
-    public GasPoweredCar(double avgKmPerLitre, int cylinders) {
-        this.avgKmPerLitre = avgKmPerLitre;
-        this.cylinders = cylinders;
-    }
+public class GasPoweredCar extends CarSkeleton {
+    private double avgKmPerLitre;
+    private int cylinders;
 
     public GasPoweredCar(String name, String description, double avgKmPerLitre, int cylinders) {
         super(name, description);
@@ -15,22 +11,27 @@ private int cylinders;
         this.cylinders = cylinders;
     }
 
+    public double getAvgKmPerLitre() {
+        return avgKmPerLitre;
+    }
+
     public int getCylinders() {
         return cylinders;
     }
 
     @Override
-    public String getDescription() {
-        return super.getDescription();
+    public void startEngine() {
+        System.out.println(getClass().getSimpleName() + ": gas engine is starting");
     }
 
     @Override
-    public String getName() {
-        return super.getName();
+    public void drive() {
+        System.out.println(getClass().getSimpleName() + ": driving with gas engine");
+        runEngine();
     }
 
-    public double getAvgKmPerLitre() {
-        return avgKmPerLitre;
+    @Override
+    protected void runEngine() {
+        System.out.println(getClass().getSimpleName() + ": running gas engine");
     }
-
 }
